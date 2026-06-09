@@ -51,36 +51,6 @@ Feature Coordinates
 Distance from Docking Station (future)
 ```
 
----
-
-## Folder Structure
-
-```
-ascend-perception/
-│
-├── data/
-│   ├── seeds/              # 128x128 seed images to search for
-│   └── arena_images/       # drone-captured arena images to search within
-│
-├── src/
-│   ├── preprocess.py       # image loading, grayscale, CLAHE, resize
-│   ├── matcher.py          # ORB feature extraction and matching
-│   └── detector.py         # sliding window search, returns x,y,score
-│
-├── docs/
-│   ├── architecture.md     # pipeline architecture diagrams
-│   └── person2_handover.md # Person 2 handover notes
-│
-├── outputs/
-│   └── detections/         # output images with bounding boxes drawn
-│
-├── evaluate_seeds.py       # main benchmark — runs all seeds vs all arenas
-├── find_best_match.py      # quick single-seed test utility
-├── find_source_image.py    # original single-seed retrieval (Person 1)
-├── make_seeds.py           # crops test seeds from arena images at correct scale
-├── requirements.txt
-└── README.md
-```
 
 ---
 
