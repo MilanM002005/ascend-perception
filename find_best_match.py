@@ -1,38 +1,37 @@
 import os
 import sys
 
-sys.path.append(os.path.join(os.path.dirname(__file__), "src"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "src"))
 
-from matcher import compare
+from detector import find_best_arena
 
-seed_path = "data/seeds/seed_1.jpg"
+SEEDS_DIR = os.path.join("data", "seeds")
+ARENA_DIR = os.path.join("data", "arena_images")
 
-best_score = -1
-best_image = None
 
-arena_folder = "data/arena_images"
+def main():
+    if len(sys.argv) > 1:
+        seed_path = sys.argv[1]
+    else:
+        seed_path = os.path.join(SEEDS_DIR, "seed_1.jpg")
 
-for image_name in os.listdir(arena_folder):
+    if not os.path.exists(seed_path):
+        print(f"Seed not found: {seed_path}")
+        sys.exit(1)
 
-    if not image_name.lower().endswith((".jpg", ".jpeg", ".png")):
-        continue
+    seed_name = os.path.basename(seed_path)
+    print(f"\nSeed: {seed_name}")
+    print("-" * 40)
 
-    image_path = os.path.join(arena_folder, image_name)
+    best_arena, best_x, best_y, best_score = find_best_arena(
+        seed_path, ARENA_DIR
+    )
 
-    try:
-        score, _ = compare(seed_path, image_path)
+    print()
+    print(f"Best arena : {best_arena}")
+    print(f"Score      : {best_score}")
+    print(f"Location   : x={best_x}, y={best_y}")
 
-        print(f"{image_name}: {score}")
 
-        if score > best_score:
-            best_score = score
-            best_image = image_name
-
-    except Exception as e:
-        print(f"Error with {image_name}: {e}")
-
-print("\n" + "=" * 60)
-print("BEST MATCH")
-print("=" * 60)
-print(f"Image: {best_image}")
-print(f"Score: {best_score}")
+if __name__ == "__main__":
+    main()
