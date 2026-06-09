@@ -159,7 +159,7 @@ Seed: seed_1.jpg
 
 ---
 
-OUTPUT
+NEXT STEP
 
 The pipeline outputs pixel coordinates (x, y) in 1280x720 space for every detected seed. Next steps:
 
@@ -169,5 +169,6 @@ The pipeline outputs pixel coordinates (x, y) in 1280x720 space for every detect
 
 TO RUN
 ```bash
+python make_seeds.py
 python evaluate_seeds.py
 ```
