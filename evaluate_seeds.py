@@ -1,3 +1,5 @@
+#To check for all the available seed images
+
 import os
 import sys
 import cv2

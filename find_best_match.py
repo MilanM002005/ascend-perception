@@ -1,3 +1,5 @@
+#To check for single seed image
+
 import os
 import sys
 
