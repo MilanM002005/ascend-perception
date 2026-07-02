@@ -1,6 +1,4 @@
-Your new README already covers everything. Just replace the entire contents of `README.md` with this:
 
-```markdown
 # ASCEND Perception
 
 A computer vision pipeline that locates seed features within drone-captured arena imagery using ORB feature matching and sliding window search.
@@ -13,23 +11,12 @@ Identify the location of seed features within arena imagery, returning the best 
 
 ---
 
-## Current Scope
-
 - Image preprocessing (grayscale, CLAHE, resize)
 - Feature extraction using ORB
 - Feature matching with Lowe's Ratio Test
 - Sliding window search across arena images
 - Best match retrieval (arena image + x,y coordinates)
 - Output images with bounding box drawn at detected location
-
----
-
-## Future Scope
-
-- Image stitching
-- Global arena mapping
-- GPS/real-world coordinate estimation
-- Distance calculation from docking station
 
 ---
 
